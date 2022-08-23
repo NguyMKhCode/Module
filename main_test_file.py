@@ -26,3 +26,5 @@ print(isinstance(Input,str))
 time.sleep(999999)
 time.sleep(999999)
 time.sleep(999999)
+
+#Conclusion: Convert module is broken. 
