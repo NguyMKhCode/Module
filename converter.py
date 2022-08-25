@@ -1,30 +1,14 @@
-
 from datatype import *
 import time
 
-Input = input("Type anything here: ")
+Input = 12
 
-InputToModule = Convert(Input, customErrorMessage=False, customMessage=False)
+InputToModule = Convert(Input)
 
-Input2 = input("What kind of data-type do you want to convert?: ")
-if Input2 == 'int':
-    InputToModule.convertToInt()
-elif Input2 == 'float':
-    InputToModule.convertToFloat()
-elif Input2 == 'str':
-    InputToModule.convertToStr()
-else:
-    print("none.")
+Inter = InputToModule.convertToStr()
 
-print("Interger data-base boolean:")
-print(isinstance(Input, int))
-print("Float data-base boolean:")
-print(isinstance(Input, float))
-print("String data-base boolean:")
-print(isinstance(Input,str))
+print("Answer: "+ str(isinstance(Inter, str)))
 
-time.sleep(999999)
-time.sleep(999999)
-time.sleep(999999)
 
-#Conclusion: Convert module is broken. 
+
+#Conclusion: Convert module is fixed.

@@ -58,56 +58,36 @@ class Checker:
             return check.data
 
 class Convert:
-    def __init__(converter, data, customMessage, customErrorMessage):
+    def __init__(converter, data,):
         converter.data = data
-        converter.customMess = customMessage
-        converter.customMessError = customErrorMessage
+
 
     def convertToInt(converter):
         try:
-            int(converter.data)
-            if converter.customMess == None or converter.customMess == False:
-                print("Done convert")
-            elif converter.customMess:
-                print(converter.customMess)
-            converter.data = int
-            return converter.data
+            converter = int(converter.data)
+            return converter
         except ValueError:
-            if converter.customMessError == None or converter.customMessError == False:
-                print("Cannot convert")
-            elif converter.customMessError:
-                print(converter.customMessError)
+            converter.CheckStr = isinstance(converter.data,str)
+            if converter.CheckStr is True:
+                raise ValueError("Cannot convert string (str) to interger (int)")
 
     def convertToStr(converter):
         try:
-            str(converter.data)
-            if converter.customMess == None or converter.customMess == False:
-                print("Done convert")
-            elif converter.customMess:
-                print(converter.customMess)
-            converter.data = str
-            return converter.data
+            converter = str(converter.data)
+            return converter
         except ValueError:
-            if converter.customMessError == None or converter.customMessError == False:
-                print("Cannot convert")
-            elif converter.customMessError:
-                print(converter.customMessError)
+            converter.CheckInt = isinstance(converter.data, int)
+            if converter.CheckInt is True:
+                raise ValueError("Cannot convert interger (int) to string (str)")
         
     def convertToFloat(converter):
         try:
-            float(converter.data)
-            if converter.customMess == None or converter.customMess == False:
-                print("Done convert")
-            elif converter.customMess:
-                print(converter.customMess)
-            converter.data = float
-            return converter.data
+            converter = float(converter.data)
+            return converter
         except ValueError:
-            if converter.customMessError == None or converter.customMessError == False:
-                print("Cannot convert")
-            elif converter.customMessError:
-                print(converter.customMessError)
+            if converter.CheckStr is True:
+                raise("Cannot convert string (str) to float")
 
 
 #Note: If you wish to make customMess or customMessError become False, please do "customMess=None" or "CustomMessError=None"
-#Also note: Convert module is broken. Don't trust any thing it said. 
+#Convert module now fixed!
